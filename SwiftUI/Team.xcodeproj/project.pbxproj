@@ -32,6 +32,7 @@
 		BEB293F025B30B9100864BF4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB293EF25B30B9100864BF4 /* Account.swift */; };
 		BEB293F425B30C3100864BF4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB293F325B30C3100864BF4 /* User.swift */; };
 		BEB293FD25B3A08000864BF4 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BEB293FC25B3A08000864BF4 /* Resnet50.mlmodel */; };
+		BEB2940625B3A35600864BF4 /* Resnet50.mlmodel.zip in Resources */ = {isa = PBXBuildFile; fileRef = BEB2940525B3A35600864BF4 /* Resnet50.mlmodel.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		BEB293EF25B30B9100864BF4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		BEB293F325B30C3100864BF4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BEB293FC25B3A08000864BF4 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		BEB2940525B3A35600864BF4 /* Resnet50.mlmodel.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Resnet50.mlmodel.zip; sourceTree = "<group>"; };
 		DA27A2267BC49DDE4B946E9D /* Pods-Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team.debug.xcconfig"; path = "Target Support Files/Pods-Team/Pods-Team.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		B88D663D25B2831A004BA591 /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				BEB2940525B3A35600864BF4 /* Resnet50.mlmodel.zip */,
 				BEB293FC25B3A08000864BF4 /* Resnet50.mlmodel */,
 				BEB293F225B30C2100864BF4 /* Model */,
 				BEB293EE25B30B7E00864BF4 /* API */,
@@ -303,6 +306,7 @@
 				B88D664B25B2831B004BA591 /* LaunchScreen.storyboard in Resources */,
 				B88D664825B2831B004BA591 /* Preview Assets.xcassets in Resources */,
 				B88D664525B2831B004BA591 /* Assets.xcassets in Resources */,
+				BEB2940625B3A35600864BF4 /* Resnet50.mlmodel.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
