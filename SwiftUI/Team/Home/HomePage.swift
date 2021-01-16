@@ -13,11 +13,20 @@ struct HomePage : View {
     @Binding var showing: Int
     @State var showMap = false
     @State var showCaptureImageView: Bool = false
+    @State var showCartView: Bool = false
     @State var image: Image?
-    var body: some View{
+    @State var predictedItem: String = "Apple"
+    
+    var body: some View {
         // Home View With CUstom Nav bar...
         if (showCaptureImageView) {
-            CaptureImageView(isShown: $showCaptureImageView, image: $image)
+            CaptureImageView(isShown: $showCaptureImageView, image: $image, cartShown: $showCartView, prediction: $predictedItem)
+        } else if (showCartView) {
+            VStack {
+                Text("Harin Smells Good").bold()
+                image?.resizable().frame(width: 250, height: 250)
+                Text("This is a " + predictedItem).bold()
+            }
         } else {
             VStack{
                 ZStack {
@@ -70,11 +79,14 @@ struct CaptureImageView {
     /// MARK: - Properties
     @Binding var isShown: Bool
     @Binding var image: Image?
+    @Binding var cartShown: Bool
+    @Binding var prediction: String
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(isShown: $isShown, image: $image)
+        return Coordinator(isShown: $isShown, image: $image, cartShown: $cartShown, prediction: $prediction)
     }
 }
+
 
 extension CaptureImageView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<CaptureImageView>) -> UIImagePickerController {
