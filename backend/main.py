@@ -69,7 +69,7 @@ def login():
 
 @app.route('/api/login/facebook', methods=['POST'])
 def facebook_login():
-    facebook_id = request.json.get('facebook_id')
+    facebook_id = request.json.get('facebookId')
     email = request.json.get('email')
     name = request.json.get('name')
 

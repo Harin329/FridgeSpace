@@ -26,7 +26,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'email': self.email,
             'name': self.name,
-            'facebook_id': self.facebook_id
+            'facebookId': self.facebook_id
         }
 
 
