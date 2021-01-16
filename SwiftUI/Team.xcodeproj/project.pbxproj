@@ -25,7 +25,8 @@
 		B88D668C25B2AC1E004BA591 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D668B25B2AC1E004BA591 /* Header.swift */; };
 		B88D669725B2B434004BA591 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D669625B2B433004BA591 /* Tools.swift */; };
 		B88D66A125B2D659004BA591 /* DetailedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D66A025B2D658004BA591 /* DetailedCard.swift */; };
-		B88D66A525B2FF51004BA591 /* Login2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D66A425B2FF51004BA591 /* Login2.swift */; };
+		B88D66A525B2FF51004BA591 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D66A425B2FF51004BA591 /* Register.swift */; };
+		B88D66AF25B30A6D004BA591 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D66AE25B30A6D004BA591 /* Onboarding.swift */; };
 		BEB291F625B2AAAC00864BF4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F525B2AAAC00864BF4 /* Login.swift */; };
 		BEB291FA25B2BBE100864BF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F925B2BBE100864BF4 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +53,8 @@
 		B88D668B25B2AC1E004BA591 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		B88D669625B2B433004BA591 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		B88D66A025B2D658004BA591 /* DetailedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCard.swift; sourceTree = "<group>"; };
-		B88D66A425B2FF51004BA591 /* Login2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login2.swift; sourceTree = "<group>"; };
+		B88D66A425B2FF51004BA591 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		B88D66AE25B30A6D004BA591 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		BEB291F525B2AAAC00864BF4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Team/Login.swift; sourceTree = SOURCE_ROOT; };
 		BEB291F925B2BBE100864BF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DA27A2267BC49DDE4B946E9D /* Pods-Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team.debug.xcconfig"; path = "Target Support Files/Pods-Team/Pods-Team.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +116,7 @@
 				B88D667C25B2A21A004BA591 /* Resources */,
 				B88D667625B29C83004BA591 /* Map */,
 				B88D666425B28B0A004BA591 /* Menu */,
-				B88D665F25B28950004BA591 /* Login */,
+				B88D665F25B28950004BA591 /* Onboarding */,
 				B88D665E25B28943004BA591 /* Education */,
 				B88D665925B28802004BA591 /* Home */,
 				B88D663E25B2831A004BA591 /* AppDelegate.swift */,
@@ -154,13 +156,14 @@
 			path = Education;
 			sourceTree = "<group>";
 		};
-		B88D665F25B28950004BA591 /* Login */ = {
+		B88D665F25B28950004BA591 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				BEB291F525B2AAAC00864BF4 /* Login.swift */,
-				B88D66A425B2FF51004BA591 /* Login2.swift */,
+				B88D66A425B2FF51004BA591 /* Register.swift */,
+				B88D66AE25B30A6D004BA591 /* Onboarding.swift */,
 			);
-			path = Login;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B88D666425B28B0A004BA591 /* Menu */ = {
@@ -327,11 +330,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D66AF25B30A6D004BA591 /* Onboarding.swift in Sources */,
 				B88D669725B2B434004BA591 /* Tools.swift in Sources */,
 				B88D663F25B2831A004BA591 /* AppDelegate.swift in Sources */,
 				B88D664125B2831A004BA591 /* SceneDelegate.swift in Sources */,
 				B88D66A125B2D659004BA591 /* DetailedCard.swift in Sources */,
-				B88D66A525B2FF51004BA591 /* Login2.swift in Sources */,
+				B88D66A525B2FF51004BA591 /* Register.swift in Sources */,
 				B88D666625B28B1D004BA591 /* MenuBar.swift in Sources */,
 				B88D668825B2ABDA004BA591 /* Landing.swift in Sources */,
 				B88D668C25B2AC1E004BA591 /* Header.swift in Sources */,
