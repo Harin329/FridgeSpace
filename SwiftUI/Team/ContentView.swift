@@ -15,7 +15,7 @@ struct ContentView : View {
         if (loggedIn) {
             Home().ignoresSafeArea(.all, edges: .vertical).statusBar(hidden: true)
         } else {
-            Login().ignoresSafeArea(.all, edges: .vertical)
+            Login2().ignoresSafeArea(.all, edges: .vertical)
         }
       }
   }
