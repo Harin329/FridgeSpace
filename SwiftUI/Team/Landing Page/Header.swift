@@ -11,13 +11,23 @@ struct Header: View {
     @State var slide = 0
     var body: some View {
         ZStack {
-            Image("header0")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+            PagerView(pageCount: 3, currentIndex: $slide) {
+                Image("header0")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+                Image("header1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+                Image("header2")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+            }.frame(width: UIScreen.main.bounds.width + 4, height: UIScreen.main.bounds.height / 3)
             VStack {
                 Spacer()
-                HeaderBar(capsuleColor: Color(hex: "#fff"), highlightColor: Color(hex: "#3E6E79"), slide: $slide, total: 4)
+                HeaderBar(capsuleColor: Color(hex: "#fff"), highlightColor: Color(hex: "#3E6E79"), slide: $slide, total: 3)
             }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
                 
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
@@ -43,10 +53,12 @@ struct HeaderBar: View {
                 .foregroundColor((slide == 2) ? highlightColor : capsuleColor)
                 .shadow(color: .white, radius: (slide == 2) ? 0.5 :0)
                 .frame(width: 40, height: 5)
-            Capsule()
-                .foregroundColor((slide == 3) ? highlightColor : capsuleColor)
-                .shadow(color: .white, radius: (slide == 3) ? 0.5 :0)
-                .frame(width: 40, height: 5)
+            if total > 3 {
+                Capsule()
+                    .foregroundColor((slide == 3) ? highlightColor : capsuleColor)
+                    .shadow(color: .white, radius: (slide == 3) ? 0.5 :0)
+                    .frame(width: 40, height: 5)
+            }
             if total > 4 {
                 Capsule()
                     .foregroundColor((slide == 4) ? highlightColor : capsuleColor)
