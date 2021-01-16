@@ -357,7 +357,7 @@
 				B88D663F25B2831A004BA591 /* AppDelegate.swift in Sources */,
 				B88D664125B2831A004BA591 /* SceneDelegate.swift in Sources */,
 				B88D66A125B2D659004BA591 /* DetailedCard.swift in Sources */,
-				B88D66A525B2FF51004BA591 /* Login2.swift in Sources */,
+				B88D66A525B2FF51004BA591 /* Register.swift in Sources */,
 				BEB293F025B30B9100864BF4 /* Account.swift in Sources */,
 				B88D66A525B2FF51004BA591 /* Register.swift in Sources */,
 				B88D666625B28B1D004BA591 /* MenuBar.swift in Sources */,
@@ -514,7 +514,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 35ZK849627;
+				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,7 +536,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 35ZK849627;
+				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
