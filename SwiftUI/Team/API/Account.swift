@@ -17,7 +17,7 @@ struct AccountEndpoints {
         let parameters = "{\n    \"facebookId\": \"" + user.facebookId + "\",\n    \"email\": \"" + user.email + "\",\n    \"name\": \"" + user.name + "\"\n}"
         let postData = parameters.data(using: .utf8)
         
-        var request = URLRequest(url: URL(string: "https://htn2021.wl.r.appspot.com/api/login/facebook")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "https://fridg.space/api/login/facebook")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.httpMethod = "POST"

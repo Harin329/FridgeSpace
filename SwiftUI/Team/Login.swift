@@ -13,6 +13,7 @@ struct Login : View {
     @ObservedObject var fbmanager = UserLoginManager()
     @State private var username: String = ""
     @State private var password: String = ""
+    @ObservedObject var currentGiver: currentUser
     var body: some View {
         VStack {
             Text("Login")
@@ -39,7 +40,7 @@ struct Login : View {
             }.padding(.top, 60)
             
             Button(action: {
-                self.fbmanager.facebookLogin()
+                self.fbmanager.facebookLogin(cUser: currentGiver)
             }) {
                 HStack {
                     Image("facebook")
