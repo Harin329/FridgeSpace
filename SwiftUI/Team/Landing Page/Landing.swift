@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Landing: View {
-    @State var show = false
+    @Binding var show : Bool
     var body: some View {
         VStack {
             ZStack {
@@ -37,8 +37,3 @@ struct Landing: View {
     }
 }
 
-struct Landing_Previews: PreviewProvider {
-    static var previews: some View {
-        Landing()
-    }
-}
