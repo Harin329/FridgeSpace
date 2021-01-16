@@ -101,15 +101,17 @@ def logout():
 @app.route('/api/donations', methods=['POST'])
 @login_required
 def create_donation():
-    food_item_ids = request.json.get('foodItems')
+    food_items = request.json.get('foodItems')
 
-    if not food_item_ids:
+    if not food_items:
         return jsonify(status='failure', message='Donation must include food items')
 
     donation = Donation(
         donor_id=current_user.id,
-        food_items=FoodItem.query.filter(FoodItem.id.in_(food_item_ids)).all()
+        food_items=[FoodItem.query.filter_by(name=name).first() or FoodItem(name=name) for name in food_items]
     )
+    db.session.add(donaation)
+    db.session.commit()
 
     return jsonify(
         status='success',
