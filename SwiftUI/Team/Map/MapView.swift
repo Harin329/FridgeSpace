@@ -32,7 +32,7 @@ struct MapView: View {
                             .font(.title3)
 
                         Spacer()
-                    }.padding(.top, 10)
+                    }.padding(.top, 20)
                 }
                 Map(coordinateRegion: $region)
             }
