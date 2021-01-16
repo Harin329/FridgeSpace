@@ -24,6 +24,8 @@
 		B88D668825B2ABDA004BA591 /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D668725B2ABDA004BA591 /* Landing.swift */; };
 		B88D668C25B2AC1E004BA591 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D668B25B2AC1E004BA591 /* Header.swift */; };
 		B88D669725B2B434004BA591 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D669625B2B433004BA591 /* Tools.swift */; };
+		BEB291F625B2AAAC00864BF4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F525B2AAAC00864BF4 /* Login.swift */; };
+		BEB291FA25B2BBE100864BF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F925B2BBE100864BF4 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		B88D668725B2ABDA004BA591 /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
 		B88D668B25B2AC1E004BA591 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		B88D669625B2B433004BA591 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		BEB291F525B2AAAC00864BF4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Team/Login.swift; sourceTree = SOURCE_ROOT; };
+		BEB291F925B2BBE100864BF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DA27A2267BC49DDE4B946E9D /* Pods-Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team.debug.xcconfig"; path = "Target Support Files/Pods-Team/Pods-Team.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +137,7 @@
 			children = (
 				B88D665A25B2880E004BA591 /* Home.swift */,
 				B88D666F25B28DD2004BA591 /* HomePage.swift */,
+				BEB291F925B2BBE100864BF4 /* Coordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 		B88D665F25B28950004BA591 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BEB291F525B2AAAC00864BF4 /* Login.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -322,11 +328,13 @@
 				B88D668825B2ABDA004BA591 /* Landing.swift in Sources */,
 				B88D668C25B2AC1E004BA591 /* Header.swift in Sources */,
 				B88D667F25B2A23E004BA591 /* Resources.swift in Sources */,
+				BEB291FA25B2BBE100864BF4 /* Coordinator.swift in Sources */,
 				B88D666D25B28C39004BA591 /* Stats.swift in Sources */,
 				B88D666125B2899B004BA591 /* Education.swift in Sources */,
 				B88D665B25B2880E004BA591 /* Home.swift in Sources */,
 				B88D664325B2831A004BA591 /* ContentView.swift in Sources */,
 				B88D667825B29CFB004BA591 /* MapView.swift in Sources */,
+				BEB291F625B2AAAC00864BF4 /* Login.swift in Sources */,
 				B88D667025B28DD2004BA591 /* HomePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
+				DEVELOPMENT_TEAM = 35ZK849627;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
+				DEVELOPMENT_TEAM = 35ZK849627;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
