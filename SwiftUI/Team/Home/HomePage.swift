@@ -41,10 +41,10 @@ struct HomePage : View {
                 }
             }
             .padding(.top, 40)
+            .padding(.bottom, 10)
             .background(Color.white)
-            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
             if showing == 0 {
-                MapView()
+                Landing()
             }
             else if showing == 1 {
                 Resources()
