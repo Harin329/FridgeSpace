@@ -28,6 +28,8 @@
 		B88D66A525B2FF51004BA591 /* Login2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D66A425B2FF51004BA591 /* Login2.swift */; };
 		BEB291F625B2AAAC00864BF4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F525B2AAAC00864BF4 /* Login.swift */; };
 		BEB291FA25B2BBE100864BF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB291F925B2BBE100864BF4 /* Coordinator.swift */; };
+		BEB293F025B30B9100864BF4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB293EF25B30B9100864BF4 /* Account.swift */; };
+		BEB293F425B30C3100864BF4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB293F325B30C3100864BF4 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		B88D66A425B2FF51004BA591 /* Login2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login2.swift; sourceTree = "<group>"; };
 		BEB291F525B2AAAC00864BF4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Team/Login.swift; sourceTree = SOURCE_ROOT; };
 		BEB291F925B2BBE100864BF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BEB293EF25B30B9100864BF4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		BEB293F325B30C3100864BF4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DA27A2267BC49DDE4B946E9D /* Pods-Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team.debug.xcconfig"; path = "Target Support Files/Pods-Team/Pods-Team.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +112,8 @@
 		B88D663D25B2831A004BA591 /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				BEB293F225B30C2100864BF4 /* Model */,
+				BEB293EE25B30B7E00864BF4 /* API */,
 				B88D669525B2B426004BA591 /* Tools */,
 				B88D668E25B2AEEC004BA591 /* Extensions */,
 				B88D668625B2ABA4004BA591 /* Landing Page */,
@@ -211,6 +217,22 @@
 				B88D669625B2B433004BA591 /* Tools.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		BEB293EE25B30B7E00864BF4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BEB293EF25B30B9100864BF4 /* Account.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BEB293F225B30C2100864BF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEB293F325B30C3100864BF4 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +354,7 @@
 				B88D664125B2831A004BA591 /* SceneDelegate.swift in Sources */,
 				B88D66A125B2D659004BA591 /* DetailedCard.swift in Sources */,
 				B88D66A525B2FF51004BA591 /* Login2.swift in Sources */,
+				BEB293F025B30B9100864BF4 /* Account.swift in Sources */,
 				B88D666625B28B1D004BA591 /* MenuBar.swift in Sources */,
 				B88D668825B2ABDA004BA591 /* Landing.swift in Sources */,
 				B88D668C25B2AC1E004BA591 /* Header.swift in Sources */,
@@ -344,6 +367,7 @@
 				B88D667825B29CFB004BA591 /* MapView.swift in Sources */,
 				BEB291F625B2AAAC00864BF4 /* Login.swift in Sources */,
 				B88D667025B28DD2004BA591 /* HomePage.swift in Sources */,
+				BEB293F425B30C3100864BF4 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +509,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
+				DEVELOPMENT_TEAM = 35ZK849627;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -507,7 +531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Team/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HBR3Z2SY9;
+				DEVELOPMENT_TEAM = 35ZK849627;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Team/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
