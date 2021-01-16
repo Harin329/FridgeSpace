@@ -62,7 +62,7 @@ struct MapView: View {
                     Spacer()
                 }
             }
-        }.animation(.easeInOut(duration: 0.8))
+        }.animation(.easeIn(duration: 0.5))
     }
 }
 
