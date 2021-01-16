@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Education: View {
     var body: some View {
-        Text("Harin Smells Bad").bold()
+        Text("Harin Smells Good").bold()
     }
 }
 
