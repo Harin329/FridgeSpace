@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-var loggedIn = true
+var loggedIn = false
 
 struct ContentView : View {
       
