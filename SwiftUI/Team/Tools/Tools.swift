@@ -65,7 +65,7 @@ struct Tools: View {
                         }
                     }
                 }
-            }
+            }.offset(y: -15)
         }
     }
 }

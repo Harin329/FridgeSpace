@@ -32,7 +32,7 @@ struct MapView: View {
                             .font(.title3)
 
                         Spacer()
-                    }.padding(.top, 10)
+                    }.padding(.top, 20)
                 }
                 Map(coordinateRegion: $region)
             }
@@ -62,7 +62,7 @@ struct MapView: View {
                     Spacer()
                 }
             }
-        }
+        }.animation(.easeInOut(duration: 0.8))
     }
 }
 

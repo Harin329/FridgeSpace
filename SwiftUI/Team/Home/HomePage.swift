@@ -11,7 +11,7 @@ struct HomePage : View {
     
     @Binding var x : CGFloat
     @Binding var showing: Int
-    
+    @State var showMap = false
     @State var showCaptureImageView: Bool = false
     @State var image: Image?
     var body: some View{
@@ -47,9 +47,11 @@ struct HomePage : View {
                         .padding(.top, 40)
                         .padding(.bottom, 10)
                         Spacer()
-                    }.zIndex(1)
+                    }
+                    .opacity(showMap ? 0 : 1)
+                    .zIndex(1)
                     if showing == 0 {
-                        Landing()
+                        Landing(show: $showMap)
                     }
                     else if showing == 1 {
                         Resources()
