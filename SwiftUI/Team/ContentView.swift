@@ -7,15 +7,16 @@
 
 import SwiftUI
 
+var loggedIn = false
+
 struct ContentView : View {
       
       var body: some View{
-          Home().ignoresSafeArea(.all, edges: .vertical)
-          
+        if (loggedIn) {
+            Home().ignoresSafeArea(.all, edges: .vertical)
+        } else {
+            Login().ignoresSafeArea(.all, edges: .vertical)
+        }
       }
   }
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+

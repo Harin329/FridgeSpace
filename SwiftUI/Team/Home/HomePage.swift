@@ -32,6 +32,7 @@ struct HomePage : View {
                     .foregroundColor(.black)
                 Spacer(minLength: 0)
                 Button(action: {
+                    // Todo
                 }) {
                     Image(systemName: "camera")
                         .font(.system(size: 24))
