@@ -23,7 +23,7 @@ struct MapView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Explore")
+                Text("Explore").foregroundColor(.black)
                 Spacer()
             }.padding(.top, 10)
             Map(coordinateRegion: $region)

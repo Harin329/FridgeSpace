@@ -23,6 +23,7 @@
 		B88D667F25B2A23E004BA591 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D667E25B2A23E004BA591 /* Resources.swift */; };
 		B88D668825B2ABDA004BA591 /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D668725B2ABDA004BA591 /* Landing.swift */; };
 		B88D668C25B2AC1E004BA591 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D668B25B2AC1E004BA591 /* Header.swift */; };
+		B88D669725B2B434004BA591 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D669625B2B433004BA591 /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		B88D667E25B2A23E004BA591 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		B88D668725B2ABDA004BA591 /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
 		B88D668B25B2AC1E004BA591 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		B88D669625B2B433004BA591 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		DA27A2267BC49DDE4B946E9D /* Pods-Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Team.debug.xcconfig"; path = "Target Support Files/Pods-Team/Pods-Team.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 		B88D663D25B2831A004BA591 /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				B88D669525B2B426004BA591 /* Tools */,
 				B88D668E25B2AEEC004BA591 /* Extensions */,
 				B88D668625B2ABA4004BA591 /* Landing Page */,
 				B88D667C25B2A21A004BA591 /* Resources */,
@@ -188,6 +191,14 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B88D669525B2B426004BA591 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B88D669625B2B433004BA591 /* Tools.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D669725B2B434004BA591 /* Tools.swift in Sources */,
 				B88D663F25B2831A004BA591 /* AppDelegate.swift in Sources */,
 				B88D664125B2831A004BA591 /* SceneDelegate.swift in Sources */,
 				B88D666625B28B1D004BA591 /* MenuBar.swift in Sources */,
