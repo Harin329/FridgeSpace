@@ -9,7 +9,18 @@ import SwiftUI
 
 struct DetailedCard: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Image("detailedView")
+                VStack {
+                    Text("Downtown Eastside Women’s Centre")
+                    HStack{
+                        Text("4.0")
+                        
+                    }
+                }
+            }
+        }
     }
 }
 
