@@ -17,41 +17,53 @@ struct Tools: View {
                 .padding(.bottom, 10)
             HStack {
                 Text("Tools")
+                    .foregroundColor(Color(hex: "#3E6E79"))
+                    .font(.title3)
                 Spacer()
             }.padding(.horizontal)
             HStack {
                 VStack {
                     Button(action: {
                     }) {
-                        Image("tool1")
-                            .resizable()
-                            .frame(width: size, height: size)
+                        VStack {
+                            Image("tool1")
+                                .resizable()
+                                .frame(width: size, height: size)
+                            Text("See My \nSurplus").font(.footnote)
+                                .offset(y:-10)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color(hex: "#3E6E79"))
+                        }
                     }
-                    Text("See My \nSurplus").font(.footnote)
-                        .offset(y:-10)
-                        .multilineTextAlignment(.center)
+
                 }
                 VStack {
                     Button(action: {
                     }) {
-                        Image("tool2")
-                            .resizable()
-                            .frame(width: size, height: size)
+                        VStack {
+                            Image("tool2")
+                                .resizable()
+                                .frame(width: size, height: size)
+                            Text("Request \nPackage").font(.footnote)
+                                .offset(y:-10)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color(hex: "#3E6E79"))
+                        }
                     }
-                    Text("Request \nPackage").font(.footnote)
-                        .offset(y:-10)
-                        .multilineTextAlignment(.center)
                 }
                 VStack {
                     Button(action: {
                     }) {
-                        Image("tool3")
-                            .resizable()
-                            .frame(width: size, height: size)
+                        VStack {
+                            Image("tool3")
+                                .resizable()
+                                .frame(width: size, height: size)
+                            Text("Schedule \nPickup").font(.footnote)
+                                .offset(y:-10)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color(hex: "#3E6E79"))
+                        }
                     }
-                    Text("Schedule \nPickup").font(.footnote)
-                        .offset(y:-10)
-                        .multilineTextAlignment(.center)
                 }
             }
         }
@@ -80,7 +92,7 @@ struct SearchBar: View {
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color(hex: "#3E6E79"))
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
                         
@@ -90,7 +102,7 @@ struct SearchBar: View {
                                 
                             }) {
                                 Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(Color(hex: "#3E6E79"))
                                     .padding(.trailing, 8)
                             }
                         }

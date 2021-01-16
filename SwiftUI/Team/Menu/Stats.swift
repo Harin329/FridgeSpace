@@ -18,10 +18,10 @@ struct Stats : View {
             
             Text("\(count)")
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(Color(hex: "#9CC3AC"))
             
             Text(title)
-                .foregroundColor(.gray)
+                .foregroundColor(Color(hex: "#3E6E79"))
         }
     }
 }

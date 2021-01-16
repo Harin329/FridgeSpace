@@ -13,12 +13,12 @@ struct MapView: View {
     @Binding var show : Bool
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 25.7617,
-            longitude: 80.1918
+            latitude: 49.2827,
+            longitude: -123.1162
         ),
         span: MKCoordinateSpan(
-            latitudeDelta: 10,
-            longitudeDelta: 10
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1
         )
     )
 
@@ -27,14 +27,17 @@ struct MapView: View {
             VStack {
                 if !show {
                     HStack {
-                        Text("Explore").foregroundColor(.black)
+                        Text("Explore")
+                            .foregroundColor(Color(hex: "#3E6E79"))
+                            .font(.title3)
+
                         Spacer()
                     }.padding(.top, 10)
                 }
                 Map(coordinateRegion: $region)
             }
             .cornerRadius(20, corners: [.topLeft, .topRight])
-            .padding(show ? 0 : 10)
+            .padding(.horizontal, show ? 0 : 20)
             .background(Rectangle()
             .fill(Color.white)
             .cornerRadius(20, corners: [.topLeft, .topRight])

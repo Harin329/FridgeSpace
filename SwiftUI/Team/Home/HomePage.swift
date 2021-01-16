@@ -31,8 +31,8 @@ struct HomePage : View {
                             }) {
                                 Image(systemName: "line.horizontal.3")
                                     .font(.system(size: 24))
-                                    .foregroundColor(.black)
-                                    .padding(.leading, 10)
+                                    .foregroundColor(.white)
+                                    .padding(.leading, 20)
                             }
                             Spacer(minLength: 0)
                             Button(action: {
@@ -40,15 +40,14 @@ struct HomePage : View {
                             }) {
                                 Image(systemName: "camera")
                                     .font(.system(size: 24))
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 10)
+                                    .foregroundColor(.white)
+                                    .padding(.trailing, 20)
                             }
                         }
                         .padding(.top, 40)
                         .padding(.bottom, 10)
-                        .background(Color.white)
                         Spacer()
-                    }
+                    }.zIndex(1)
                     if showing == 0 {
                         Landing()
                     }

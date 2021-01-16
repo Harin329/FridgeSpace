@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuBar: View {
-    var menuButtons = ["Home","Resources","Veggie"]
+    var menuButtons = ["Statistics","Messages","Notifications", "History"]
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     @Binding var showing: Int
     @Binding var x: CGFloat
@@ -17,27 +17,26 @@ struct MenuBar: View {
             VStack(alignment: .leading){
                 Image("logo")
                     .resizable()
-                    .frame(width: 60, height: 60)
+                    .frame(width: 110, height: 110)
                     .clipShape(Circle())
+                    .padding([.top], 20)
                 HStack(alignment: .top, spacing: 12) {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Harin Brisland")
+                        Text("Sarah Thompson")
                             .font(.title3)
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
-                        // Stats...
-                        VStack(spacing: 10){
-                            Stats(count: 8, title: "ppl feed")
-                                .onTapGesture {
-                                }
-                            Stats(count: 108, title: "meals donated")
-                                .onTapGesture {
-                                    // do something here....
-                                }
+                            .foregroundColor(Color(hex: "#255359"))
+                        HStack{
+                            Text("30")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(hex: "#9CC3AC"))
+                            
+                            Text("Meals Donated")
+                                .foregroundColor(Color(hex: "#255359"))
                         }
                         .padding(.top,10)
                         Divider()
-                            .padding(.top,10)
+                            .padding(.vertical)
                     }
                     Spacer(minLength: 0)
                 }
@@ -47,14 +46,17 @@ struct MenuBar: View {
                     ForEach(menuButtons,id: \.self){menu in
                         Button(action: {
                             // switch your actions or work based on title....
-                            if menu == "Home" {
+                            if menu == "Statistics" {
                                 showing = 0
                             }
-                            else if menu == "Resources" {
+                            else if menu == "Messages" {
                                 showing = 1
                             }
-                            else if menu == "Veggie" {
+                            else if menu == "Notifications" {
                                 showing = 2
+                            }
+                            else if menu == "History" {
+                                showing = 3
                             }
                             withAnimation{
                                 x = -UIScreen.main.bounds.width + 90
@@ -64,27 +66,21 @@ struct MenuBar: View {
                         }
                     }
                     Divider()
-                        .padding(.top)
-                    Button(action: {
-                        // switch your actions or work based on title....
-                    }) {
-                        MenuButton(title: "Upload")
-                    }
-                    Divider()
+                        .padding(.vertical)
                     Button(action: {}) {
-                        Text("Settings and privacy")
-                            .foregroundColor(.black)
+                        Text("Settings")
+                            .foregroundColor(Color(hex: "#255359"))
                     }
                     .padding(.top)
                     Button(action: {}) {
                         Text("Help centre")
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(hex: "#9CC3AC"))
                     }
                     .padding(.top,20)
                     Spacer(minLength: 0)
                 }
             }
-            .padding(.horizontal,20)
+            .padding(.horizontal,30)
             // since vertical edges are ignored....
             .padding(.top,edges!.top == 0 ? 15 : edges?.top)
             .padding(.bottom,edges!.bottom == 0 ? 15 : edges?.bottom)
@@ -104,11 +100,9 @@ struct MenuButton : View {
             // both title and image names are same....
             Image(title)
                 .resizable()
-                .renderingMode(.template)
                 .frame(width: 24, height: 24)
-                .foregroundColor(.gray)
             Text(title)
-                .foregroundColor(.black)
+                .foregroundColor(Color(hex: "#255359"))
             Spacer(minLength: 0)
         }
         .padding(.vertical,12)

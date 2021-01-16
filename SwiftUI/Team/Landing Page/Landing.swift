@@ -13,7 +13,7 @@ struct Landing: View {
         VStack {
             ZStack {
                 VStack {
-                    Header().frame(height: UIScreen.main.bounds.height / 5)
+                    Header().frame(height: UIScreen.main.bounds.height / 3)
                         .border(Color.black)
                     Tools().frame(height: UIScreen.main.bounds.height / 3)
                     Spacer()
@@ -31,7 +31,7 @@ struct Landing: View {
                             .foregroundColor(Color.clear)
                             .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     }.opacity(show ? 0 : 1)
-                }.offset(y: show ? 0 : UIScreen.main.bounds.height / 1.8 )
+                }.offset(y: show ? 0 : UIScreen.main.bounds.height / 1.5 )
             }
         }.ignoresSafeArea(.all, edges: .bottom)
     }

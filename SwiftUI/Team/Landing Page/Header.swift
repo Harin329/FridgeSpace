@@ -10,8 +10,9 @@ import SwiftUI
 struct Header: View {
     var body: some View {
         VStack {
-            Text("Header")
-        }.background(Color.gray)
+            Rectangle().fill(Color(hex: "#9CC3AC"))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+        }
     }
 }
 

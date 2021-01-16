@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Screen Shot 2021-01-15 at 7.19.36 PM.png",
+      "filename" : "Ellipse 27.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Ellipse 27-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Ellipse 27-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
