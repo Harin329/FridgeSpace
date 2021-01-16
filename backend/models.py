@@ -1,23 +1,34 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+app.secret_key = os.environ['FLASK_SECRET_KEY']
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+CORS(app)
 db = SQLAlchemy(app)
 
+login_manager = LoginManager()
+login_manager.init_app(app)
 
-class User(db.Model):
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, nullable=False, unique=True, index=True)
     name = db.Column(db.String)
+    facebook_id = db.Column(db.String)
 
     def to_json(self):
         return {
             'id': self.id,
-            'name': self.name
+            'email': self.email,
+            'name': self.name,
+            'facebookId': self.facebook_id
         }
 
 
@@ -46,7 +57,7 @@ class Donation(db.Model):
 
 class FoodItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, unique=True)
+    name = db.Column(db.String, nullable=False, unique=True, index=True)
 
     def to_json(self):
         return {
