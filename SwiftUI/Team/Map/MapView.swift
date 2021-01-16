@@ -15,16 +15,20 @@ struct MapView: View {
     @State var y: CGFloat = .zero
     @State var details = Place(name: "", rating: 4, description: "", latitude: 49.282168337943865, longitude: -123.10198987525719)
     let places = [
-        Place(name: "Downtown Eastside Women’s Centre", rating: 4, description: "Women’s shelter • 302 Columbia St", latitude: 49.282168337943865, longitude: -123.10198987525719)
+        Place(name: "Downtown Eastside Women’s Centre", rating: 4, description: "Women’s shelter • 302 Columbia St", latitude: 49.282168337943865, longitude: -123.10198987525719),
+        Place(name: "Quest Food Exchange", rating: 5, description: "Food bank • 167 1st St E", latitude: 49.310707552051326, longitude: -123.07688379426315),
+        Place(name: "The Salvation Army", rating: 4, description: "Soup kitchen • 105 12th St W", latitude: 49.31872950930746, longitude: -123.07275778056395),
+        Place(name: "The Dugout", rating: 5, description: "Non-profit organization • 59 Powell St", latitude: 49.283452702488425, longitude: -123.10267433159707),
+        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.2825696333637, longitude: -123.09556808256683)
     ]
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 49.2827,
-            longitude: -123.1162
+            latitude: 49.2994117016012,
+            longitude: -123.0910624969814
         ),
         span: MKCoordinateSpan(
-            latitudeDelta: 0.1,
-            longitudeDelta: 0.1
+            latitudeDelta: 0.05,
+            longitudeDelta: 0.05
         )
     )
 
