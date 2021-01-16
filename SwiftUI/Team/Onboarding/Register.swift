@@ -14,6 +14,7 @@ struct Register: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var password2: String = ""
+    @ObservedObject var currentGiver: currentUser
     var body: some View {
         VStack {
             Text("Register")
@@ -52,7 +53,7 @@ struct Register: View {
 
             
             Button(action: {
-                self.fbmanager.facebookLogin()
+                self.fbmanager.facebookLogin(cUser: currentGiver)
             }) {
                 HStack {
                     Image("facebook")
@@ -73,7 +74,7 @@ struct Register: View {
 
 class UserLoginManager: ObservableObject {
     let loginManager = LoginManager()
-    func facebookLogin() {
+    func facebookLogin(cUser: currentUser) {
         loginManager.logIn(permissions: [.publicProfile, .email], viewController: nil) { loginResult in
             switch loginResult {
             case .failed(let error):
@@ -82,13 +83,17 @@ class UserLoginManager: ObservableObject {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in! \(grantedPermissions) \(declinedPermissions) \(accessToken)")
-                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name"]).start(completionHandler: { (connection, result, error) -> Void in
+                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email, first_name"]).start(completionHandler: { (connection, result, error) -> Void in
                     if (error == nil){
                         let fbDetails = result as! NSDictionary
                         print(fbDetails)
+                        let user = User(facebookId: fbDetails["id"] as! String, name: fbDetails["name"] as! String, email: fbDetails["email"] as! String, id: 0)
+                        AccountEndpoints.createUser(user: user)
+                        cUser.user = user
                     }
                 })
             }
         }
+        
     }
 }

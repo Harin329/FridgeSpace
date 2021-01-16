@@ -11,12 +11,14 @@ struct Onboarding: View {
     let titles = ["Snap", "Pack", "Map", "Track"]
     let bodies = ["Take a photo of food you \ncannot finish", "Seal, pack, and schedule pickup \nof your surplus food","Locate donation hotspots and \nfood items in demand", "Rely on our driver to deliver your \nfood safely to non-profit recipient"]
     @State var slide = 0
+    @ObservedObject var currentGiver: currentUser
+
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
                     Spacer()
-                    NavigationLink(destination: Login()) {
+                    NavigationLink(destination: Login(currentGiver: currentGiver)) {
                         Text("Login")
                             .foregroundColor(Color(hex: "#255359"))
                     }
@@ -41,7 +43,7 @@ struct Onboarding: View {
                     .padding(.bottom, 20)
                 }
                 ImageSlider(slide: $slide).offset(y:-50)
-                NavigationLink(destination: Register()) {
+                NavigationLink(destination: Register(currentGiver: currentGiver)) {
                     HStack {
                         Text("Sign up")
                             .foregroundColor(Color(hex: "#fff"))
@@ -128,6 +130,6 @@ struct PagerView<Content: View>: View {
 
 struct Onboarding_Previews: PreviewProvider {
     static var previews: some View {
-        Onboarding()
+        Onboarding(currentGiver: currentUser())
     }
 }
