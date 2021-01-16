@@ -12,8 +12,9 @@ struct Tools: View {
     var size: CGFloat = 110
     var body: some View {
         return VStack {
-            SearchBar(text: $search, placeholder: "Zip code, food item, nonprofit, etc.")
+            SearchBar(text: $search)
                 .padding(.horizontal,5)
+                .padding(.bottom, 10)
             HStack {
                 Text("Tools")
                 Spacer()
@@ -63,38 +64,57 @@ struct Tools_Previews: PreviewProvider {
     }
 }
 
-struct SearchBar: UIViewRepresentable {
-
+struct SearchBar: View {
     @Binding var text: String
-    var placeholder: String
 
-    class Coordinator: NSObject, UISearchBarDelegate {
-
-        @Binding var text: String
-
-        init(text: Binding<String>) {
-            _text = text
+    @State private var isEditing = false
+        
+    var body: some View {
+        HStack {
+            
+            TextField("Zip code, food item, nonprofit", text: $text)
+                .padding(7)
+                .padding(.horizontal, 25)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .overlay(
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                        
+                        if isEditing {
+                            Button(action: {
+                                self.text = ""
+                                
+                            }) {
+                                Image(systemName: "multiply.circle.fill")
+                                    .foregroundColor(.gray)
+                                    .padding(.trailing, 8)
+                            }
+                        }
+                    }
+                )
+                .padding(.horizontal, 10)
+                .onTapGesture {
+                    self.isEditing = true
+                }
+            
+            if isEditing {
+                Button(action: {
+                    self.isEditing = false
+                    self.text = ""
+                    
+                    // Dismiss the keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }) {
+                    Text("Cancel")
+                }
+                .padding(.trailing, 10)
+                .transition(.move(edge: .trailing))
+                .animation(.default)
+            }
         }
-
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
-    }
-
-    func makeCoordinator() -> SearchBar.Coordinator {
-        return Coordinator(text: $text)
-    }
-
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
-        searchBar.delegate = context.coordinator
-        searchBar.placeholder = placeholder
-        searchBar.searchBarStyle = .minimal
-        searchBar.autocapitalizationType = .none
-        return searchBar
-    }
-
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = text
     }
 }

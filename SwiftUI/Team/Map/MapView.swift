@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
+    @State private var search: String = ""
+    @Binding var show : Bool
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 25.7617,
@@ -21,26 +23,43 @@ struct MapView: View {
     )
 
     var body: some View {
-        VStack {
-            HStack {
-                Text("Explore").foregroundColor(.black)
-                Spacer()
-            }.padding(.top, 10)
-            Map(coordinateRegion: $region)
+        ZStack {
+            VStack {
+                if !show {
+                    HStack {
+                        Text("Explore").foregroundColor(.black)
+                        Spacer()
+                    }.padding(.top, 10)
+                }
+                Map(coordinateRegion: $region)
+            }
+            .cornerRadius(20, corners: [.topLeft, .topRight])
+            .padding(show ? 0 : 10)
+            .background(Rectangle()
+            .fill(Color.white)
+            .cornerRadius(20, corners: [.topLeft, .topRight])
+            .shadow(radius: 8))
+            if show {
+                VStack {
+                    HStack {
+                        Button(action: {
+                            show.toggle()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(Color.black)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        }
+                        Spacer()
+                    }.padding([.leading, .top], 20)
+                    SearchBar(text: $search)
+                        .padding(.horizontal,20)
+                        .padding(.top, 20)
+                    Spacer()
+                }
+            }
         }
-        .cornerRadius(20, corners: [.topLeft, .topRight])
-        .padding()
-        .background(Rectangle()
-                        .fill(Color.white)
-                        .cornerRadius(20, corners: [.topLeft, .topRight])
-                        .shadow(radius: 8))
-        
-    }
-}
-
-struct Map_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
     }
 }
 

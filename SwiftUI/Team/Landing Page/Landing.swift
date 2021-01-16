@@ -18,12 +18,19 @@ struct Landing: View {
                     Tools().frame(height: UIScreen.main.bounds.height / 3)
                     Spacer()
                 }
-                Button(action: {
-                    show.toggle()
-                }) {
+                ZStack {
                     VStack {
-                        MapView()
+                        MapView(show: $show)
                     }.allowsHitTesting(show)
+                    Button(action: {
+                        if !show {
+                            show.toggle()
+                        }
+                    }) {
+                        Rectangle()
+                            .foregroundColor(Color.clear)
+                            .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    }.opacity(show ? 0 : 1)
                 }.offset(y: show ? 0 : UIScreen.main.bounds.height / 1.8 )
             }
         }.ignoresSafeArea(.all, edges: .bottom)

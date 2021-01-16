@@ -13,7 +13,7 @@ struct ContentView : View {
       
       var body: some View{
         if (loggedIn) {
-            Home().ignoresSafeArea(.all, edges: .vertical)
+            Home().ignoresSafeArea(.all, edges: .vertical).statusBar(hidden: true)
         } else {
             Login().ignoresSafeArea(.all, edges: .vertical)
         }

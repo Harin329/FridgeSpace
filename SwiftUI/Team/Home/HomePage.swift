@@ -20,40 +20,41 @@ struct HomePage : View {
             CaptureImageView(isShown: $showCaptureImageView, image: $image)
         } else {
             VStack{
-                HStack{
-                    Button(action: {
-                        // opening menu,...
-                        withAnimation{
-                            x = 0
+                ZStack {
+                    VStack {
+                        HStack{
+                            Button(action: {
+                                // opening menu,...
+                                withAnimation{
+                                    x = 0
+                                }
+                            }) {
+                                Image(systemName: "line.horizontal.3")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.black)
+                                    .padding(.leading, 10)
+                            }
+                            Spacer(minLength: 0)
+                            Button(action: {
+                                self.showCaptureImageView.toggle()
+                            }) {
+                                Image(systemName: "camera")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.black)
+                                    .padding(.trailing, 10)
+                            }
                         }
-                    }) {
-                        Image(systemName: "line.horizontal.3")
-                            .font(.system(size: 24))
-                            .foregroundColor(.black)
-                            .padding(.leading, 10)
+                        .padding(.top, 40)
+                        .padding(.bottom, 10)
+                        .background(Color.white)
+                        Spacer()
                     }
-                    Spacer(minLength: 0)
-                    Text("Food Buds")
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                    Spacer(minLength: 0)
-                    Button(action: {
-                        self.showCaptureImageView.toggle()
-                    }) {
-                        Image(systemName: "camera")
-                            .font(.system(size: 24))
-                            .foregroundColor(.black)
-                            .padding(.trailing, 10)
+                    if showing == 0 {
+                        Landing()
                     }
-                }
-                .padding(.top, 40)
-                .padding(.bottom, 10)
-                .background(Color.white)
-                if showing == 0 {
-                    Landing()
-                }
-                else if showing == 1 {
-                    Resources()
+                    else if showing == 1 {
+                        Resources()
+                    }
                 }
             }
             // for drag gesture...
