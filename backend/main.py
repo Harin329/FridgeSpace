@@ -126,6 +126,15 @@ def get_donations():
     )
 
 
+@app.route('/api/meals-donated', methods=['GET'])
+@login_required
+def get_meals_donated():
+    return jsonify(
+        status='success',
+        meals=len(current_user.donations) // 3
+    )
+
+
 def generate_mock_data():
     if not User.query.filter_by(email='test@test.com', name='test user', facebook_id='test').first():
         test_user = User(email='test@test.com', name='test user', facebook_id='test')
