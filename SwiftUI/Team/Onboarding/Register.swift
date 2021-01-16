@@ -82,10 +82,11 @@ class UserLoginManager: ObservableObject {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in! \(grantedPermissions) \(declinedPermissions) \(accessToken)")
-                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name"]).start(completionHandler: { (connection, result, error) -> Void in
+                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email, first_name"]).start(completionHandler: { (connection, result, error) -> Void in
                     if (error == nil){
                         let fbDetails = result as! NSDictionary
                         print(fbDetails)
+                        AccountEndpoints.createUser(user: User(facebookId: fbDetails["id"] as! String, name: fbDetails["name"] as! String, email: fbDetails["email"] as! String))
                     }
                 })
             }
