@@ -8,7 +8,7 @@
 import SwiftUI
 
 class currentUser: ObservableObject {
-    @Published var user = User(facebookId: "", name: "", email: "", id: 0)
+    @Published var user = User(facebookId: "i", name: "", email: "", id: 0)
 }
 
 struct ContentView : View {

@@ -11,6 +11,12 @@ import MapKit
 struct MapView: View {
     @State private var search: String = ""
     @Binding var show : Bool
+    @State var showDetails = false
+    @State var y: CGFloat = .zero
+    @State var details = Place(name: "", rating: 4, description: "", latitude: 49.282168337943865, longitude: -123.10198987525719)
+    let places = [
+        Place(name: "Downtown Eastside Women’s Centre", rating: 4, description: "Women’s shelter • 302 Columbia St", latitude: 49.282168337943865, longitude: -123.10198987525719)
+    ]
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 49.2827,
@@ -34,7 +40,20 @@ struct MapView: View {
                         Spacer()
                     }.padding(.top, 20)
                 }
-                Map(coordinateRegion: $region)
+                Map(coordinateRegion: $region,annotationItems: places) { place in
+                    MapAnnotation(coordinate: place.coordinate) {
+                        Button(action: {
+                            showDetails = true
+                            details = place
+                        }, label: {
+                            Image("pin")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 55, height: 55, alignment: .center)
+                        })
+                        }
+
+                }
             }
             .cornerRadius(20, corners: [.topLeft, .topRight])
             .padding(.horizontal, show ? 0 : 20)
@@ -47,6 +66,7 @@ struct MapView: View {
                     HStack {
                         Button(action: {
                             show.toggle()
+                            showDetails = false
                         }) {
                             Image(systemName: "chevron.left")
                                 .frame(width: 40, height: 40)
@@ -61,6 +81,10 @@ struct MapView: View {
                         .padding(.top, 20)
                     Spacer()
                 }
+            }
+            if showDetails {
+                DetailedCard(place: details, showDetails: $showDetails, y: $y)
+                    .offset(y: showDetails ? UIScreen.main.bounds.height / 3 + y : UIScreen.main.bounds.height)
             }
         }.animation(.easeIn(duration: 0.5))
     }
@@ -82,3 +106,16 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
+struct Place: Identifiable {
+    let id = UUID()
+    let name: String
+    let rating: Int
+    let description: String
+    let latitude: Double
+    let longitude: Double
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+

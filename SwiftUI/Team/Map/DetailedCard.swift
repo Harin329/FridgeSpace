@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct DetailedCard: View {
+    var place: Place
+    @Binding var showDetails: Bool
+    @Binding var y : CGFloat
+    var length: CGFloat = 150.0
     var body: some View {
         VStack {
             Capsule()
@@ -17,13 +21,13 @@ struct DetailedCard: View {
                 Image("detailedView")
                 VStack {
                     HStack {
-                        Text("Downtown Eastside Women’s Centre")
+                        Text(place.name)
                             .font(.subheadline)
                             .foregroundColor(Color(hex: "255359"))
                         Spacer()
                     }
                     HStack{
-                        Text("4.0")
+                        Text(String(place.rating) + ".0")
                             .font(.subheadline)
                             .foregroundColor(Color(hex: "3E6E79"))
                         ForEach(1..<5+1) { number in
@@ -46,7 +50,7 @@ struct DetailedCard: View {
                         Spacer()
                     }
                     HStack {
-                        Text("Women’s shelter • 302 Columbia St")
+                        Text(place.description)
                             .font(.subheadline)
 
                             .foregroundColor(Color(hex: "3E6E79"))
@@ -102,17 +106,23 @@ struct DetailedCard: View {
         .cornerRadius(20, corners: [.topLeft, .topRight])
         .padding(.horizontal, 20)
         .padding(.top, 10)
-        .padding(.bottom, 15)
+        .padding(.bottom, 20)
         .background(Rectangle()
         .fill(Color.white)
         .cornerRadius(20, corners: [.topLeft, .topRight])
         .shadow(radius: 8))
-    }
-}
-
-struct DetailedCard_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailedCard()
+        .gesture(DragGesture()
+                    .onChanged { gesture in
+                        self.y = gesture.translation.height
+                    }
+                    .onEnded { _ in
+                        if y > 100 {
+                            showDetails.toggle()
+                            self.y = .zero
+                        } else {
+                            self.y = .zero
+                        }
+                    })
     }
 }
 
