@@ -14,19 +14,19 @@ struct HomePage : View {
     @State var showMap = false
     @State var showCaptureImageView: Bool = false
     @State var showCartView: Bool = false
+    @State var showCheckoutView: Bool = false
     @State var image: Image?
     @State var predictedItem: String = "Apple"
+    @State var cart:[Item] = []
     
     var body: some View {
         // Home View With CUstom Nav bar...
         if (showCaptureImageView) {
-            CaptureImageView(isShown: $showCaptureImageView, image: $image, cartShown: $showCartView, prediction: $predictedItem)
+            ZStack {
+                CaptureImageView(isShown: $showCaptureImageView, image: $image, cartShown: $showCartView, prediction: $predictedItem)
+           }
         } else if (showCartView) {
-            VStack {
-                Text("Harin Smells Good").bold()
-                image?.resizable().frame(width: 250, height: 250)
-                Text("This is a " + predictedItem).bold()
-            }
+            PreCart(cart:$cart,showCaptureImageView: $showCaptureImageView, item: Item(name: predictedItem, image: image ?? Image("orange")))
         } else {
             VStack{
                 ZStack {
