@@ -14,6 +14,8 @@ struct Login : View {
     @State private var username: String = ""
     @State private var password: String = ""
     @ObservedObject var currentGiver: currentUser
+    @Binding var login: Bool
+
     var body: some View {
         VStack {
             Image("fridgeSpace2")
@@ -33,6 +35,7 @@ struct Login : View {
             }
             
             Button(action: {
+                login.toggle()
             }) {
                 HStack {
                     Text("Login")

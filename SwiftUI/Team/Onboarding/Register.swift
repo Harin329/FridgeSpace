@@ -15,6 +15,8 @@ struct Register: View {
     @State private var password: String = ""
     @State private var password2: String = ""
     @ObservedObject var currentGiver: currentUser
+    @Binding var login: Bool
+
     var body: some View {
         VStack {
             Image("fridgeSpace2")
@@ -38,6 +40,7 @@ struct Register: View {
             }
             
             Button(action: {
+                login.toggle()
             }) {
                 HStack {
                     Text("Sign up")
