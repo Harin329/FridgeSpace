@@ -10,7 +10,7 @@ db.create_all()
 
 @app.route('/')
 def hello_world():
-    return 'Welcome to FrydgeSpace!'
+    return 'Welcome to FridgeSpace!'
 
 
 @app.route('/api/healthcheck')
