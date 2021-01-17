@@ -14,6 +14,7 @@ struct MapView: View {
     @Binding var disableMenu : Bool
     @State var showDetails = false
     @State var y: CGFloat = .zero
+    @Binding var showCaptureImageView: Bool
     @State var details = Place(name: "", rating: 4, description: "", latitude: 49.282168337943865, longitude: -123.10198987525719)
     let places = [
         Place(name: "Downtown Eastside Women’s Centre", rating: 4, description: "Women’s shelter • 302 Columbia St", latitude: 49.282168337943865, longitude: -123.10198987525719),
@@ -25,7 +26,9 @@ struct MapView: View {
         Place(name: "Quest Food Exchange", rating: 5, description: "Food bank • 167 1st St E", latitude: 49.272745732090236, longitude: -123.06807362740749),
         Place(name: "The Salvation Army", rating: 4, description: "Soup kitchen • 105 12th St W", latitude: 49.276466653590916, longitude: -123.0986631712335),
         Place(name: "The Dugout", rating: 5, description: "Non-profit organization • 59 Powell St", latitude: 49.26476171691881, longitude: -123.08715320730334),
-        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.284381134681844, longitude: -123.06454805288277)
+        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.284381134681844, longitude: -123.06454805288277),
+        Place(name: "The Salvation Army", rating: 4, description: "Soup kitchen • 105 12th St W", latitude: 49.331288171067925, longitude: -123.10883624966553),
+        Place(name: "The Dugout", rating: 5, description: "Non-profit organization • 59 Powell St", latitude: 49.31711641600455, longitude: -123.1125164495634)
     ]
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
@@ -94,7 +97,7 @@ struct MapView: View {
                 }
             }
             if showDetails {
-                DetailedCard(place: details, showDetails: $showDetails, y: $y)
+                DetailedCard(place: details, showDetails: $showDetails, y: $y, showCaptureImageView: $showCaptureImageView)
                     .offset(y: showDetails ? UIScreen.main.bounds.height / 3 + y : UIScreen.main.bounds.height)
             }
         }.animation(.easeIn(duration: 0.5))

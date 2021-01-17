@@ -62,7 +62,7 @@ struct HomePage : View {
                     .opacity(showMap ? 0 : 1)
                     .zIndex(1)
                     if showing == 0 {
-                        Landing(show: $showMap, disableMenu: $disableMenu)
+                        Landing(show: $showMap, disableMenu: $disableMenu, showCaptureImageView: $showCaptureImageView)
                     }
                     else if showing == 1 {
                         Resources()

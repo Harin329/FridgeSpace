@@ -43,36 +43,41 @@ struct PreCart: View {
                                         .fill(Color.white)
                                         .shadow(radius: 2))
                     Spacer()
+                    HStack {
+                        Button(action: {
+                            showCaptureImageView = true
+                        }) {
+                            HStack {
+                                Text("Add more")
+                                    .foregroundColor(Color(hex: "#fff"))
+                                    .padding([.vertical],15)
+                                    .frame(width:160)
+                            }.background(Color(hex: "#255359"))
+                        }.cornerRadius(30).padding([.leading], 15)
+                        
+                        NavigationLink(destination: Cart(cart: $cart, showing: $showing, showCartView: $showCartView)) {
+                            HStack {
+                                Text("Go to Cart")
+                                    .foregroundColor(Color(hex: "#fff"))
+                                    .padding([.vertical],15)
+                                    .frame(width:160)
+                            }.background(Color(hex: "#255359"))
+                        }.cornerRadius(30).padding([.trailing], 15)
+                    }.padding([.bottom], 15)
                     Button(action: {
                         cart.append(item)
                         added = true
                     }) {
                         HStack {
-                            Text("Add to Cart")
+                            Text(added ? "Added!" : "Add to Cart")
                                 .foregroundColor(Color(hex: "#fff"))
                                 .padding([.vertical],15)
-                                .frame(width:200)
+                                .frame(width:320)
                         }.background(Color(hex: added ? "9CC3AC" : "#255359"))
-                    }.cornerRadius(30).padding([.top], 15)
-                    .disabled(added)
-                    Button(action: {
-                        showCaptureImageView = true
-                    }) {
-                        HStack {
-                            Text("Add more")
-                                .foregroundColor(Color(hex: "#fff"))
-                                .padding([.vertical],15)
-                                .frame(width:200)
-                        }.background(Color(hex: "#255359"))
-                    }.cornerRadius(30).padding([.bottom,.top], 15)
-                    NavigationLink(destination: Cart(cart: $cart)) {
-                        HStack {
-                            Text("Go to Cart")
-                                .foregroundColor(Color(hex: "#fff"))
-                                .padding([.vertical],15)
-                                .frame(width:200)
-                        }.background(Color(hex: "#255359"))
                     }.cornerRadius(30).padding([.bottom], 15)
+                    .disabled(added)
+
+
                 }.padding(.vertical,40).padding(.top,15)
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
@@ -93,34 +98,44 @@ extension String {
 
 struct Cart: View {
     @Binding var cart:[Item]
+    @Binding var showing: Int
+    @Binding var showCartView: Bool
+    @State var showThanks = false
     var body: some View {
-        VStack{
-            Text("My Surplus Food")
-                .font(.title3)
-                .foregroundColor(Color(hex: "255359"))
-                .padding(.bottom, 30)
-            ForEach(0..<4) { number in //yuck xD
-                if number < cart.count {
-                    CartItem(item: cart[number])
-                        .background(Rectangle()
-                                        .fill(Color.white)
-                                        .shadow(radius: 2))
+        ZStack {
+            ThankYou(showing: $showing, showCartView: $showCartView, showThanks: $showThanks)
+                .opacity(showThanks ? 1 : 0)
+            VStack{
+                Text("My Surplus Food")
+                    .font(.title3)
+                    .foregroundColor(Color(hex: "255359"))
+                    .padding(.bottom, 30)
+                ForEach(0..<4) { number in //yuck xD
+                    if number < cart.count {
+                        CartItem(item: cart[number])
+                            .background(Rectangle()
+                                            .fill(Color.white)
+                                            .shadow(radius: 2))
+                    }
                 }
+                Spacer()
+                Button(action: {
+                    showThanks.toggle()
+                }) {
+                    HStack {
+                        Text("Pack it Up")
+                            .foregroundColor(Color(hex: "#fff"))
+                            .padding([.vertical],15)
+                            .frame(width:200)
+                    }.background(Color(hex: "#255359"))
+                }.cornerRadius(30).padding([.bottom,.top], 15)
             }
-            Spacer()
-            Button(action: {
-            }) {
-                HStack {
-                    Text("Pack it Up")
-                        .foregroundColor(Color(hex: "#fff"))
-                        .padding([.vertical],15)
-                        .frame(width:200)
-                }.background(Color(hex: "#255359"))
-            }.cornerRadius(30).padding([.bottom,.top], 15)
-        }
-        .offset(y:-65)
-        .padding(.bottom,40)
-        .navigationBarTitle("")
+            .padding(.bottom,40)
+            .navigationBarTitle("")
+            .accentColor( Color(hex: "#255359"))
+            .opacity(showThanks ? 0 : 1)
+        }.offset(y:0)
+
     }
 }
 
@@ -183,7 +198,41 @@ struct CartItem: View {
     }
 }
 
+struct ThankYou: View {
+    @Binding var showing: Int
+    @Binding var showCartView: Bool
+    @Binding var showThanks: Bool
 
+    var body: some View {
+            VStack{
+                Text("Thank you!")
+                    .font(.title)
+                    .foregroundColor(Color(hex: "255359"))
+                    .padding(.bottom, 30)
+                Spacer()
+                Image("onboarding3")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 350, height: 350)
+                Spacer()
+                Button(action: {
+                    showing = 0
+                    showCartView.toggle()
+                }) {
+                    HStack {
+                        Text("Return to Home")
+                            .foregroundColor(Color(hex: "#fff"))
+                            .padding([.vertical],15)
+                            .frame(width:320)
+                    }.background(Color(hex:"#255359"))
+                }.cornerRadius(30).padding([.bottom], 15)
+
+            }.padding(.vertical,40).padding(.top,15)
+            .offset(y:0)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
+}
 
 struct Item: Identifiable {
     let id = UUID()

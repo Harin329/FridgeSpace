@@ -10,6 +10,7 @@ import SwiftUI
 struct Landing: View {
     @Binding var show : Bool
     @Binding var disableMenu : Bool
+    @Binding var showCaptureImageView: Bool
     var body: some View {
         VStack {
             ZStack {
@@ -21,7 +22,7 @@ struct Landing: View {
                 }
                 ZStack {
                     VStack {
-                        MapView(show: $show, disableMenu: $disableMenu)
+                        MapView(show: $show, disableMenu: $disableMenu, showCaptureImageView: $showCaptureImageView)
                     }.allowsHitTesting(show)
                     Button(action: {
                         if !show {
