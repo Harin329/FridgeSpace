@@ -11,6 +11,7 @@ import MapKit
 struct MapView: View {
     @State private var search: String = ""
     @Binding var show : Bool
+    @Binding var disableMenu : Bool
     @State var showDetails = false
     @State var y: CGFloat = .zero
     @State var details = Place(name: "", rating: 4, description: "", latitude: 49.282168337943865, longitude: -123.10198987525719)
@@ -70,6 +71,7 @@ struct MapView: View {
                     HStack {
                         Button(action: {
                             show.toggle()
+                            disableMenu.toggle()
                             showDetails = false
                         }) {
                             Image(systemName: "chevron.left")

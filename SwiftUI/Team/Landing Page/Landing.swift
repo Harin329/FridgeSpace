@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Landing: View {
     @Binding var show : Bool
+    @Binding var disableMenu : Bool
     var body: some View {
         VStack {
             ZStack {
@@ -20,11 +21,12 @@ struct Landing: View {
                 }
                 ZStack {
                     VStack {
-                        MapView(show: $show)
+                        MapView(show: $show, disableMenu: $disableMenu)
                     }.allowsHitTesting(show)
                     Button(action: {
                         if !show {
                             show.toggle()
+                            disableMenu.toggle()
                         }
                     }) {
                         Rectangle()

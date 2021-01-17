@@ -13,9 +13,10 @@ struct Home : View {
     // to hide view...
     @State var x = -UIScreen.main.bounds.width + 90
     @State var showing = 0
+    @State var disableMenu = false
     var body: some View{
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-            HomePage(x: $x, showing: self.$showing)
+            HomePage(x: $x, showing: self.$showing, disableMenu: $disableMenu)
             MenuBar(showing: self.$showing, x: self.$x)
                 .shadow(color: Color.black.opacity(x != 0 ? 0.1 : 0), radius: 5, x: 5, y: 0)
                 .offset(x: x)
@@ -29,26 +30,31 @@ struct Home : View {
         // adding gesture or drag feature...
         .gesture(DragGesture().onChanged({ (value) in
             withAnimation{
-                if value.translation.width > 0{
-                    // disabling over drag...
-                    if x < 0{
-                        x = -width + value.translation.width
+                if !disableMenu {
+                    if value.translation.width > 0{
+                        // disabling over drag...
+                        if x < 0{
+                            x = -width + value.translation.width
+                        }
                     }
-                }
-                else{
-                    if x != -width{
-                        x = value.translation.width
+                    else{
+                        if x != -width{
+                            x = value.translation.width
+                        }
                     }
                 }
             }
         }).onEnded({ (value) in
             withAnimation{
+                if !disableMenu {
+
                 // checking if half the value of menu is dragged means setting x to 0...
-                if -x < width / 2{
-                    x = 0
-                }
-                else{
-                    x = -width
+                    if -x < width / 2{
+                        x = 0
+                    }
+                    else{
+                        x = -width
+                    }
                 }
             }
         }))

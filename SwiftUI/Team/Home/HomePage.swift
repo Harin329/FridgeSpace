@@ -18,6 +18,7 @@ struct HomePage : View {
     @State var image: Image?
     @State var predictedItem: String = "Apple"
     @State var cart:[Item] = []
+    @Binding var disableMenu: Bool
     
     var body: some View {
         // Home View With CUstom Nav bar...
@@ -46,6 +47,7 @@ struct HomePage : View {
                             Spacer(minLength: 0)
                             Button(action: {
                                 self.showCaptureImageView.toggle()
+                                disableMenu = true
                             }) {
                                 Image(systemName: "camera")
                                     .font(.system(size: 24))
@@ -60,7 +62,7 @@ struct HomePage : View {
                     .opacity(showMap ? 0 : 1)
                     .zIndex(1)
                     if showing == 0 {
-                        Landing(show: $showMap)
+                        Landing(show: $showMap, disableMenu: $disableMenu)
                     }
                     else if showing == 1 {
                         Resources()
