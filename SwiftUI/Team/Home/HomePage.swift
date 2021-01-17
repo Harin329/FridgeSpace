@@ -27,7 +27,7 @@ struct HomePage : View {
                 CaptureImageView(isShown: $showCaptureImageView, image: $image, cartShown: $showCartView, prediction: $predictedItem)
            }
         } else if (showCartView) {
-            PreCart(cart:$cart,showCaptureImageView: $showCaptureImageView, item: Item(name: predictedItem.capitalizingFirstLetter(), image: image ?? Image("orange")))
+            PreCart(cart:$cart,showCaptureImageView: $showCaptureImageView, item: Item(name: predictedItem.capitalizingFirstLetter(), image: image ?? Image("orange")), showing: $showing, showCartView: $showCartView)
         } else {
             VStack{
                 ZStack {

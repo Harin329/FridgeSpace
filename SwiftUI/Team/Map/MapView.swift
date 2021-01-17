@@ -20,7 +20,12 @@ struct MapView: View {
         Place(name: "Quest Food Exchange", rating: 5, description: "Food bank • 167 1st St E", latitude: 49.310707552051326, longitude: -123.07688379426315),
         Place(name: "The Salvation Army", rating: 4, description: "Soup kitchen • 105 12th St W", latitude: 49.31872950930746, longitude: -123.07275778056395),
         Place(name: "The Dugout", rating: 5, description: "Non-profit organization • 59 Powell St", latitude: 49.283452702488425, longitude: -123.10267433159707),
-        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.2825696333637, longitude: -123.09556808256683)
+        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.2825696333637, longitude: -123.09556808256683),
+        Place(name: "Downtown Eastside Women’s Centre", rating: 4, description: "Women’s shelter • 302 Columbia St", latitude: 49.320971276368454, longitude: -123.09565816407556),
+        Place(name: "Quest Food Exchange", rating: 5, description: "Food bank • 167 1st St E", latitude: 49.272745732090236, longitude: -123.06807362740749),
+        Place(name: "The Salvation Army", rating: 4, description: "Soup kitchen • 105 12th St W", latitude: 49.276466653590916, longitude: -123.0986631712335),
+        Place(name: "The Dugout", rating: 5, description: "Non-profit organization • 59 Powell St", latitude: 49.26476171691881, longitude: -123.08715320730334),
+        Place(name: "The Door Is Open", rating: 5, description: "Soup kitchen • 255 Dunlevy Ave", latitude: 49.284381134681844, longitude: -123.06454805288277)
     ]
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(

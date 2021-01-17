@@ -12,52 +12,72 @@ struct PreCart: View {
     @Binding var showCaptureImageView: Bool
     @State var added = false
     var item:Item
+    @Binding var showing: Int
+    @Binding var showCartView: Bool
     var body: some View {
         NavigationView {
-            VStack{
-                Text("My Surplus Food")
-                    .font(.title3)
-                    .foregroundColor(Color(hex: "255359"))
-                    .padding(.bottom, 30)
-                CartItem(item: item)
-                    .background(Rectangle()
-                                    .fill(Color.white)
-                                    .shadow(radius: 2))
-                Spacer()
-                Button(action: {
-                    cart.append(item)
-                    added = true
-                }) {
+            ZStack {
+                VStack {
                     HStack {
-                        Text("Add to Cart")
-                            .foregroundColor(Color(hex: "#fff"))
-                            .padding([.vertical],15)
-                            .frame(width:200)
-                    }.background(Color(hex: added ? "9CC3AC" : "#255359"))
-                }.cornerRadius(30).padding([.top], 15)
-                .disabled(added)
-                Button(action: {
-                    showCaptureImageView = true
-                }) {
-                    HStack {
-                        Text("Add more")
-                            .foregroundColor(Color(hex: "#fff"))
-                            .padding([.vertical],15)
-                            .frame(width:200)
-                    }.background(Color(hex: "#255359"))
-                }.cornerRadius(30).padding([.bottom,.top], 15)
-                NavigationLink(destination: Cart(cart: $cart)) {
-                    HStack {
-                        Text("Go to Cart")
-                            .foregroundColor(Color(hex: "#fff"))
-                            .padding([.vertical],15)
-                            .frame(width:200)
-                    }.background(Color(hex: "#255359"))
-                }.cornerRadius(30).padding([.bottom], 15)
-            }.padding(.vertical,40).padding(.top,15)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-        }.accentColor( Color(hex: "#255359"))
+                        Button(action: {
+                            showing = 0
+                            showCartView.toggle()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(Color.black)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        }
+                        Spacer()
+                    }.padding([.leading, .top], 20)
+                    Spacer()
+                }
+                VStack{
+                    Text("My Surplus Food")
+                        .font(.title3)
+                        .foregroundColor(Color(hex: "255359"))
+                        .padding(.bottom, 30)
+                    CartItem(item: item)
+                        .background(Rectangle()
+                                        .fill(Color.white)
+                                        .shadow(radius: 2))
+                    Spacer()
+                    Button(action: {
+                        cart.append(item)
+                        added = true
+                    }) {
+                        HStack {
+                            Text("Add to Cart")
+                                .foregroundColor(Color(hex: "#fff"))
+                                .padding([.vertical],15)
+                                .frame(width:200)
+                        }.background(Color(hex: added ? "9CC3AC" : "#255359"))
+                    }.cornerRadius(30).padding([.top], 15)
+                    .disabled(added)
+                    Button(action: {
+                        showCaptureImageView = true
+                    }) {
+                        HStack {
+                            Text("Add more")
+                                .foregroundColor(Color(hex: "#fff"))
+                                .padding([.vertical],15)
+                                .frame(width:200)
+                        }.background(Color(hex: "#255359"))
+                    }.cornerRadius(30).padding([.bottom,.top], 15)
+                    NavigationLink(destination: Cart(cart: $cart)) {
+                        HStack {
+                            Text("Go to Cart")
+                                .foregroundColor(Color(hex: "#fff"))
+                                .padding([.vertical],15)
+                                .frame(width:200)
+                        }.background(Color(hex: "#255359"))
+                    }.cornerRadius(30).padding([.bottom], 15)
+                }.padding(.vertical,40).padding(.top,15)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            }.accentColor( Color(hex: "#255359"))
+        }
     }
 }
 

@@ -111,6 +111,7 @@ struct DetailedCard: View {
         .fill(Color.white)
         .cornerRadius(20, corners: [.topLeft, .topRight])
         .shadow(radius: 8))
+        .animation(.interpolatingSpring(stiffness: 30, damping: 30))
         .gesture(DragGesture()
                     .onChanged { gesture in
                         self.y = gesture.translation.height
