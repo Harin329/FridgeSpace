@@ -12,13 +12,13 @@ class currentUser: ObservableObject {
 }
 
 struct ContentView : View {
-    @State var demoLogin = false
+    
     @ObservedObject var currentGiver = currentUser()
     var body: some View{
-        if (currentGiver.user.facebookId != "" || demoLogin) {
+        if (currentGiver.user.facebookId != "") {
             Home().ignoresSafeArea(.all, edges: .vertical).statusBar(hidden: true)
         } else {
-            Onboarding(currentGiver: currentGiver, login: $demoLogin).ignoresSafeArea(.all, edges: .vertical).statusBar(hidden: true)
+            Onboarding(currentGiver: currentGiver).ignoresSafeArea(.all, edges: .vertical).statusBar(hidden: true)
         }
     }
 }
