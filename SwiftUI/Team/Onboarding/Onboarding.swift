@@ -25,11 +25,12 @@ struct Onboarding: View {
                 }.padding([.trailing, .top], 30)
                 Spacer()
                 if slide == 0 {
-                    Text("\n\n\nWelcome to")
+                    Text("Welcome to")
                         .foregroundColor(Color(hex: "#255359"))
                         .font(.body)
                         .padding(.bottom, 5)
                         .padding(.top,22)
+                        .offset(y:90)
                 }
                 else {
                 Text(titles[slide-1])

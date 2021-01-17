@@ -17,23 +17,24 @@ struct Register: View {
     @ObservedObject var currentGiver: currentUser
     var body: some View {
         VStack {
-            Text("Register")
-                .foregroundColor(Color(hex: "#255359"))
-                .font(.title)
+            Image("fridgeSpace2")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width - 80)
                 .padding(.bottom, 20)
             VStack(spacing: 25) {
                 TextField("    Username", text: $username)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("    Email", text: $email)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("    Password", text: $password)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("    Confirm Password", text: $password2)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             Button(action: {
@@ -41,15 +42,16 @@ struct Register: View {
                 HStack {
                     Text("Sign up")
                         .foregroundColor(Color(hex: "#fff"))
-                        .padding([.vertical],10)
+                        .padding([.vertical],15)
                         .frame(width:260)
                 }.background(Color(hex: "#255359"))
+                .cornerRadius(10)
             }.padding(.top, 20)
             
             Text("OR")
                 .foregroundColor(Color(hex: "#255359"))
                 .font(.body)
-                .padding(20)
+                .padding(10)
 
             
             Button(action: {
@@ -61,12 +63,12 @@ struct Register: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20,height: 20)
                         .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 15)
                     Text("Sign up with Facebook")
                         .foregroundColor(Color(hex: "#fff"))
                         .padding(.trailing,20)
-                        .padding(.vertical, 10)
-                }.background(Color(hex: "#5590C3"))
+                        .padding(.vertical, 15)
+                }.background(Color(hex: "#5590C3")).cornerRadius(10)
             }
         }
     }

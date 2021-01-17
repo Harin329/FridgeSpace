@@ -16,17 +16,20 @@ struct Login : View {
     @ObservedObject var currentGiver: currentUser
     var body: some View {
         VStack {
-            Text("Login")
-                .foregroundColor(Color(hex: "#255359"))
-                .font(.title)
+            Image("fridgeSpace2")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width - 80)
                 .padding(.bottom, 20)
+
             VStack(spacing: 25) {
                 TextField("    Username", text: $username)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("    Password", text: $password)
-                    .frame(width: 260,height:40)
-                    .border(Color.gray, width:0.5)
+                    .frame(width: 260,height:30)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
             }
             
             Button(action: {
@@ -34,10 +37,11 @@ struct Login : View {
                 HStack {
                     Text("Login")
                         .foregroundColor(Color(hex: "#fff"))
-                        .padding([.vertical],10)
+                        .padding([.vertical],15)
                         .frame(width:260)
                 }.background(Color(hex: "#255359"))
-            }.padding(.top, 60)
+                .cornerRadius(10)
+            }.padding(.top, 40)
             
             Button(action: {
                 self.fbmanager.facebookLogin(cUser: currentGiver)
@@ -46,14 +50,14 @@ struct Login : View {
                     Image("facebook")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 20,height: 20)
+                        .frame(width: 25,height: 25)
                         .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 15)
                     Text("Login with Facebook")
                         .foregroundColor(Color(hex: "#fff"))
                         .padding(.trailing,20)
-                        .padding(.vertical, 10)
-                }.padding(.horizontal,8).background(Color(hex: "#5590C3"))
+                        .padding(.vertical, 15)
+                }.padding(.horizontal,8).background(Color(hex: "#5590C3")).cornerRadius(10)
             }
         }
     }
