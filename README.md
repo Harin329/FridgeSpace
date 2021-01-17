@@ -1,4 +1,4 @@
-## Hack the North 2021
+## FridgeSpace - Hack the North 2021
 
 ## Inspiration
 Based on the observation that most household waste is avoidable, and most people donate out of convenience, FridgeSpace is a service that reduces this waste by making it possible to donate food from the comfort of one’s own home. 
