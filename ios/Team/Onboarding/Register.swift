@@ -15,6 +15,8 @@ struct Register: View {
     @State private var password: String = ""
     @State private var password2: String = ""
     @ObservedObject var currentGiver: currentUser
+    @Binding var login: Bool
+
     var body: some View {
         VStack {
             Image("fridgeSpace2")
@@ -29,15 +31,16 @@ struct Register: View {
                 TextField("    Email", text: $email)
                     .frame(width: 260,height:30)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("    Password", text: $password)
+                SecureField("    Password", text: $password)
                     .frame(width: 260,height:30)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("    Confirm Password", text: $password2)
+                SecureField("    Confirm Password", text: $password2)
                     .frame(width: 260,height:30)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             Button(action: {
+                login.toggle()
             }) {
                 HStack {
                     Text("Sign up")

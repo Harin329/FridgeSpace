@@ -12,6 +12,7 @@ struct DetailedCard: View {
     @Binding var showDetails: Bool
     @Binding var y : CGFloat
     @Binding var showCaptureImageView: Bool
+    @Binding var show : Bool
     var length: CGFloat = 150.0
     var body: some View {
         VStack {
@@ -96,6 +97,7 @@ struct DetailedCard: View {
             }
             Button(action: {
                 showCaptureImageView.toggle()
+                show.toggle()
             }) {
                 HStack {
                     Text("Donate")

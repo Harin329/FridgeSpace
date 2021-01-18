@@ -97,7 +97,7 @@ struct MapView: View {
                 }
             }
             if showDetails {
-                DetailedCard(place: details, showDetails: $showDetails, y: $y, showCaptureImageView: $showCaptureImageView)
+                DetailedCard(place: details, showDetails: $showDetails, y: $y, showCaptureImageView: $showCaptureImageView, show: $show)
                     .offset(y: showDetails ? UIScreen.main.bounds.height / 3 + y : UIScreen.main.bounds.height)
             }
         }.animation(.easeIn(duration: 0.5))
