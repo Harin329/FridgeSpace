@@ -1,4 +1,4 @@
-## FridgeSpace - Hack the North 2021
+## FridgeSpace - Hack the North 2020++
 
 ![Demo](./AppDemo.gif)
 
